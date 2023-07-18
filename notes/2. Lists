@@ -1,0 +1,41 @@
+
+1. Lists can be translated into a list of elements
+using the primitive element FlatList.
+
+FlatList:
+* turns an array into a list of elements.
+* props needed:
+    * data -- the array of data to create a bunch of elements
+    * renderItem -- function that will turn each item of the array into an element
+
+* <FlatList 
+    data = {} 
+    renderItem = {(x) => {
+                        return  <Text>{x}</Text>
+                            } 
+                } 
+/>
+
+_______
+If a list contains objects, each object is {item: object, index : i}, so we need to use (x.item) or use ({item})
+_______
+Why we cannot miss **key** prop? 
+- - - - - -- - - - 
+
+That doesn't allow react native to separate elements. When updating the array, react native will delete the whole
+list and create it from scratch.
+
+Using **key** property helps link the object to the component and change only one component. 
+
+________
+Implementing key property.
+- - - - - - - - -
+method 1.
+
+1) add key property to the original object
+    * unique
+    * string
+    * consistent
+
+2) add key property to FlatList component itself. 
+    *prop keyExtractor = {(friend) => friend.name}

@@ -1,0 +1,38 @@
+1. Components are the structure for showing users 
+a piece of content. It's a function returning JSX.
+
+Structure of custom component:
+1. Libraries
+    'react' - is about interconnections between Components. We import the whole library.
+    'react-native' is about components. We can import separate components.
+2. Create a commponent (return JSX)
+
+const ComponentName = () => {
+    return some component style = {some style};
+};
+
+3. Stylesheet to style the component
+
+const styles = StyleSheet.create({
+    group1: {
+
+    },
+    group2: {
+
+    }
+})
+4. export the component.
+
+export default ComponentName;
+
+_________
+How to show a component.
+
+1. Go to App.js
+2. import the component 
+    import ComponentName from <address>
+3. Use it. 
+
+_________
+Examples
+<Text>, <View>, <Button>
