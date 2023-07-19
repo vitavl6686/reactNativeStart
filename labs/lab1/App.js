@@ -13,7 +13,7 @@ const navigator = createStackNavigator(
     List: ListScreen
   },
   {
-    initialRouteName: "HomeworkComp",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       title: "New app",
     },
