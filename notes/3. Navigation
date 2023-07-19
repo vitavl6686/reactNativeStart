@@ -1,0 +1,31 @@
+User Navigation
+- - - - - - - - 
+
+Buttons in React Native:
+1) <Button> is a primitive component. Very basic. 
+2) TouchableOpacity is very customisable, can detect
+a press on just about any component. 
+
+__
+<Button />
+
+*need a prop 'title = String'
+*onPress = {function}
+
+___
+<TouchableOpacity> </TouchableOpacity>
+
+*Between tags we add any elements we want to be monitored for pressing
+* onPress as a prop of TouchableOpacity works in a usual way
+
+___
+Idea: we can send props with a custom component.
+It's the argument of the lambda function we create when create a component.
+
+when we use StackNavigator, the props.navigation is added to the component function
+We can use props.navidation.navigate(screenName) in onPress of buttons.
+
+___
+Small addition.
+
+We can use ({navigation}) to access only props.navidation
