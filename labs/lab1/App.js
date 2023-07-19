@@ -2,18 +2,18 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import ComponentsScreen from "./src/screens/ComponentsScreen";
-import HomeWork from "./src/screens/Homework";
+import HomeWork2 from "./src/screens/Homework2";
 import ListScreen from "./src/screens/ListScreen";
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     Components: ComponentsScreen,
-    HomeworkComp: HomeWork,
+    HomeworkComp: HomeWork2,
     List: ListScreen
   },
   {
-    initialRouteName: "List",
+    initialRouteName: "HomeworkComp",
     defaultNavigationOptions: {
       title: "New app",
     },
