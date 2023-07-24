@@ -1,0 +1,40 @@
+5. States.
+
+Idea: states are about tracking a pience of data 
+in the application and changing something in application
+if needed.
+React native doen't track variables by default. So, when they're changed,
+we cannot use this fact
+
+First steps:
+1) what pience of data is changing in the application?
+2) what is the type of the data?
+3) what is the default value for the data?
+
+Hook
+------
+Adds some new functionality to a function component. 
+
+import {useState} from 'react'
+
+const [variableName, setVariableName] = useState(defaultValue);
+then when we need to update it, use setVariableName(newValue).
+
+
+****
+Changing arrays
+
+When we want to change an array using states, we cannot use .push()
+Instead, we use:
+setArray([...array, newElement])
+
+***
+If a child component needs to be able to change a state in parent component,
+we can send a callback function for that.
+Use prop with a function of managing state as needed.
+Example: 
+<NewComponent decrease = {() => setCounter(counter + 1)} />
+
+Analogically, we can send current state to child component.
+
+State is always in most parent component.
