@@ -1,0 +1,33 @@
+Components Reuse
+_____________
+Idea:
+We can use reusable components with props to configure them. 
+
+Props are created by PARENT component for the CHILD component.
+_____________
+To reuse component:
+
+1) Import it in a parent component
+2) use it in self-closing tags
+
+_____________
+To customise a reusable component:
+
+1) add a prop to the parent component (add it to the child's tag 
+as usual)
+
+2) use props.prop_name_created_in_parent in child's component
+
+_____________
+Detail:
+I can use use ({property_Name}) instead of (props)
+
+_____________
+HOW TO USE IMAGES
+* Tag <Image />
+* prop source = {require('path')}
+* all images are in assets folder
+* example: 
+    <Image source = {require('../../assets/pictures/beach.jpg')}/>
+
+DYNAMIC REQUIRE() IS NOT SUPPORTED

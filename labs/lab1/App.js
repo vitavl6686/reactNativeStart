@@ -4,13 +4,15 @@ import HomeScreen from "./src/screens/HomeScreen";
 import ComponentsScreen from "./src/screens/ComponentsScreen";
 import HomeWork2 from "./src/screens/Homework2";
 import ListScreen from "./src/screens/ListScreen";
+import ImageScreen from "./src/screens/ImageScreen";
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     Components: ComponentsScreen,
     HomeworkComp: HomeWork2,
-    List: ListScreen
+    List: ListScreen,
+    Images: ImageScreen
   },
   {
     initialRouteName: "Home",
