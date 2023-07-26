@@ -1,0 +1,23 @@
+Text inputs.
+****
+ <TextInput />
+
+ 1) This tag has no styling applied to it by default. So, it's not visible by default.
+ 
+ 2) Important props:
+    -- autoCapitalize="none"
+    -- autoCorrect={false}
+    -- value 
+    -- placeHolder
+    -- onChangeText
+
+3) A parent cannot fetch props from its child. 
+So,  to work with a text input we need:
+    1) set a state in a parent (current value)
+    2) give this state as an argument for child's prop value.
+    3) give a callback function onChangeText() to a child element that changes the state
+    4) in onChangeText argument is a text currently in the input
+
+    ____
+    Note:
+    We can use JS in JSX in {}
