@@ -1,0 +1,48 @@
+Reducers.
+*****
+Idea: functions that managing changes to an object.
+Either useState() or reducers.
+
+Structure:
+1) 2 object arguments.
+    I -- an object with all states in it 
+        {red: 0, green: 0, blue: 0}
+        NEVER CHANGE DIRECTLY
+    II -- object that describes the change to the state
+        {color: 'red', amount: 15}
+
+2) look at the second argument and change the first argument.
+
+3) Must return states (first argument)
+
+
+Techinal implementation.
+------------------------
+1) import { useReducer } from 'react';
+
+inside the component:
+
+2) const [state, dispatch] = useReducer(reducer, { red: 0, green: 0, blue: 0});
+state -- variable for accessing the second object. It's a state.
+dispatch -- dunction for using reducer
+reducer implements the behaviour
+object -- default object
+
+3) define reducer function outside of the component.
+reducer implements the change if we have (state, howToChangeTheState) as arguments.
+
+const reducer = (state, action) => {
+    return NEW_State_object 
+        as {...state, change}
+}
+
+**we need to return a state object, even in default case**
+
+Convention about action object:
+    type -- property to change with operation. "change_red"
+    payload -- how to change the property
+
+4) Use dispatch() with change as an argument in all necessary places.
+
+
+

@@ -4,7 +4,7 @@ import {Text, View, Button} from 'react-native';
 const ColourCounter = ({colour, increase, decrease, current}) => {
     return(
         <View>
-            <Text>{colour}:{current}</Text>
+            <Text>{colour} : {current}</Text>
                 <Button 
                     title = {`More ${colour}`}
                     onPress={increase}

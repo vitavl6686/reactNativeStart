@@ -11,7 +11,7 @@ const PaletteScreen = () => {
     const [green, setGreen] = useState(0);
 
     return (
-        <View>
+        <View> 
             <ColourCounter colour = 'Red' 
                             decrease = {() => {(setRed(Math.max(MIN_COLOUR_VALUE,red - COLOUR_INCREMENT)))}} 
                             increase = {() => {(setRed(Math.min(MAX_COLOUR_VALUE,red + COLOUR_INCREMENT)))}}
