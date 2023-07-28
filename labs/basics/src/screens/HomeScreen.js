@@ -44,6 +44,10 @@ const HomeScreen = ({navigation}) => {
           title = "Go to Name Shower screen"
           onPress= {() => navigation.navigate("NameShower")}
       />
+      <Button
+          title = "Go to Box Screen"
+          onPress= {() => navigation.navigate("Box")}
+      />
     </View>
   );
 };

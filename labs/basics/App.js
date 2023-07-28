@@ -10,6 +10,7 @@ import PaletteScreen from "./src/screens/PaletteScreen";
 import PaletteScreenWithReducer from "./src/screens/PaletteScreenWithReducer";
 import CounterWithReducer from "./src/screens/CounterWithReducerScreen";
 import NameShowerScreen from "./src/screens/NameShowerScreen";
+import BoxScreen from "./src/screens/BoxScreen";
 
 
 const navigator = createStackNavigator(
@@ -23,7 +24,8 @@ const navigator = createStackNavigator(
     Palette: PaletteScreen,
     Reducer: PaletteScreenWithReducer,
     CounterReducer: CounterWithReducer,
-    NameShower: NameShowerScreen
+    NameShower: NameShowerScreen,
+    Box: BoxScreen
   },
   {
     initialRouteName: "Home",
