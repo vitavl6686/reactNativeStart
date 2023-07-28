@@ -1,0 +1,51 @@
+Layot systems:
+1) Box object model
+    * height/weight of an element and  space around it
+    * regulate the positioning of a single element
+
+2) Flex Box
+    * How sibling elements get laid out inside a parent
+    * regulate the positioning of multiply elements
+     with a common parent
+
+3) Position 
+    * How a single element lies inside the parent
+    * Override box object model and flex box
+
+___
+Box Object. 
+* One element.
+* Content -> padding -> border -> margin. 
+* Only content and padding have background colour.
+* By default they all are equal to 0
+
+* Margin: marginBottom, marginTop, marginLeft, marginRight, marginHorisontal..
+* Padding: paddingBottom, paddingTop, paddingLeft, paddingRight
+* Border: borderBottomWidth..., borderWidth
+* Content: height, backgroundColour...
+
+___
+Flex object.
+
+To parent: 
+
+* alignItems:
+    -- 'stretch' -- stretch to the end of parent (DEFAULT)
+    -- 'flex-start' -- start from the left while needed (as less as possible)
+    -- 'center'
+    -- 'flex-end' -- on the right
+    --if row, regulates from top to bottom, if col from left to right
+
+* flexDirection: 
+    -- 'column' (DEFAULT)
+    -- 'row'
+
+* justifyContent
+    * the same as alignItem but in other direction
+    * 'flex-end', 'center', 'flex-start', 'space-between', 'space-around'
+
+To child:
+
+* flex
+    -- how much space inside the parent.
+    -- flex: 1 -- as much space as possible
