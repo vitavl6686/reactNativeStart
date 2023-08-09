@@ -49,3 +49,27 @@ To child:
 * flex
     -- how much space inside the parent.
     -- flex: 1 -- as much space as possible
+    -- if use not 1, we get a propontional space
+
+* alignSelf: 'flex-end', 'flex-start', 'center'
+    -- to position inself inside the parent ignoring 'common' instruction
+
+
+______
+Position.
+
+* position: 'absolute'
+    -- Makes element completely ignore the siblings but can 
+        fulfil instructions of "alignItems"
+
+* top: n, bottom: n, left: n, right: n
+    -- add space between a child and other elements
+    but after rendering the page so it can overlap
+    other elements
+    -- if 0 -- no distance between.
+    -- if with position: 'absolute', can fill the container
+
+
+
+
+
