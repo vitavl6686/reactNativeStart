@@ -1,0 +1,8 @@
+UseEffect hook.
+------
+
+* Used when we need to do something only one time when first rendered
+* first argument is function, the second argument is a frequency of rendering
+    * no argument -- every time
+    * [] -- when first rendered
+    * [value1, value 2] -- when first rendered AND when value changes

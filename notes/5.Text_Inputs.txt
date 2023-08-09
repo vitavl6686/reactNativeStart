@@ -10,6 +10,7 @@ Text inputs.
     -- value 
     -- placeHolder
     -- onChangeText
+    -- onEndEditing
 
 3) A parent cannot fetch props from its child. 
 So,  to work with a text input we need:
