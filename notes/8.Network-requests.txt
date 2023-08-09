@@ -1,0 +1,40 @@
+Network requests options.
+-----
+
+1) fetch
+    * embedded
+    * weird tons of code
+2) axios
+    * adds some size
+    * have to install
+    * easier
+    * npm install axios
+
+Axios use:
+-----
+1) npm install axios
+2) create a folder api with file of specific apis there
+3) create an axios there
+    import axios from 'axios';
+
+    export default axios.create(
+        {
+            baseURL: <URL OF ALL API CALLs IN COMMON>
+            headers: {
+
+            }
+        }
+    )
+
+4) use
+    as we should wait for the responce from the server, we shopuld use async
+    async () => {
+        const responce = await yelp.get('/rest_of_the_address',
+        {
+            params: {
+                
+            }
+        });
+    }
+
+5) responce.data is gonna contain the needed result

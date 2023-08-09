@@ -29,3 +29,38 @@ ___
 Small addition.
 
 We can use ({navigation}) to access only props.navidation
+
+__________
+Natigators in react native.
+******
+
+"react-natigation" library:
+-- Stack navigator
+-- Drawer navigator
+    ** the list at the side of the page
+-- Bottom tab navigator
+
+___
+USE:
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack'; (or other)
+
+const navigator = createStackNavigator(all_screens, options)
+    all_screens
+    ----------
+        {
+        codeName: reference,
+        codeName: reference,
+        }
+
+    options
+    ----------
+        {
+            initialRouteName: <name>,
+            defaultNavigationOptions: {
+                title: <title of the app>
+            }
+        }
+
+export default createAppContainer(navigator);
+
