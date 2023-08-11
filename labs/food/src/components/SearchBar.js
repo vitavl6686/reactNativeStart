@@ -21,6 +21,7 @@ const SearchBar = ({userSearch, change, onSubmit}) => {
                 autoCapitalize='none'
                 autoCorrect = {false}
                 onEndEditing= {onSubmit}
+                ref={input => { this.textInput = input }}
             />
         </View>
     )

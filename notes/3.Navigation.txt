@@ -64,3 +64,7 @@ const navigator = createStackNavigator(all_screens, options)
 
 export default createAppContainer(navigator);
 
+__________
+The second argument of navigation.navigate can be an object of props.
+After that, we can use navigation.getParam(name_of_param) in 
+screen we went to.
