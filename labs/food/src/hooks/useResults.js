@@ -9,13 +9,15 @@ export default () => {
     let bad = [];
 
     const searchAPI = async (searchTerm) => {
-        console.log('hi');
         try {
         const response = await yelp.get('/search', {
             params: {
                 limit: 50,
                 term:  searchTerm ,
-                location: 'Dublin'
+                location: 'Dublin',
+                sort_by: 'distance',
+                open_now: true,
+                radius: 2000
             }
         });
         setResults(response.data.businesses);
@@ -24,7 +26,6 @@ export default () => {
         } catch (err) {
             setErrorMessage('Something went wrong');
         }
-
     };
 
     const filterByRate = () => {
@@ -46,9 +47,10 @@ export default () => {
     
     
     filterByRate();
+
     useEffect(() => {
         searchAPI('dinner');
     }, []);
 
-    return [errorMessage, searchAPI, results, best, good, bad];
+    return [errorMessage, searchAPI, best, good, bad];
 };
