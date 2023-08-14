@@ -56,7 +56,7 @@ const ResultsShowScreen = ({ navigation }) => {
             <Text style={styles.header} >Address: </Text>
 
             <TouchableOpacity
-                onPress={() => {Linking.openURL(details.url)}}>
+                onPress={() => {Linking.openURL()}}>
             <FlatList 
                 data = {details.location.display_address}
                 renderItem={({item}) => {
@@ -65,6 +65,8 @@ const ResultsShowScreen = ({ navigation }) => {
                     }}
             />
             </TouchableOpacity>
+
+
             </View>
 
         </View>
