@@ -1,0 +1,43 @@
+Global state management -- managing all state needed
+for an application in one single location.
+
+* Redux library does it.
+
+____
+Context.
+
+* moves information from a parent to a nexted child
+ (not necessary to the immediate one)
+
+* function React.createContext() creates "pipes" to
+deliver information.
+
+* Syntax:
+    const NameContext = React.createContext();
+    const componentNameProvider = ({children}) => {
+        return <NameContext.Provider>
+        {children}
+        </NameContext.Provider>;
+    
+}
+
+* export componentNameProvider as a named export (we export different things)
+* import it in App.js
+* Now we have a wrapper for all components in our application.
+
+____
+Provider. 
+
+* has a 'value' prop which is available for all children.
+* to access it, export NameContext and import it in 
+appropriate component. 
+* use hook useContext(NameContext);
+
+____
+Children. 
+
+When we create a component A with component B inside the component C,
+we pass component B as a prob from C into A. 
+This prop calls children
+
+
