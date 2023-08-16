@@ -6,7 +6,7 @@ for an application in one single location.
 ____
 Context.
 
-* moves information from a parent to a nexted child
+* moves information from a parent to a nested child
  (not necessary to the immediate one)
 
 * function React.createContext() creates "pipes" to
