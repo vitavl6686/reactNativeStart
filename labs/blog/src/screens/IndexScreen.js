@@ -6,11 +6,11 @@ import { Entypo, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const IndexScreen = ({navigation}) => {
-    const { data, addBlogPost, deleteBlogPost} =  useContext(BlogContext);
+    const { data,  deleteBlogPost, networkError} =  useContext(BlogContext);
     
     return(
         <View style = {styles.mainView}>
-            
+            <Text>{networkError}</Text>
             <FlatList 
                 data = {data}
                 keyExtractor={(blogPost) => {return blogPost.title}}

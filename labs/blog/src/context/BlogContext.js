@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
+import jsonServer from '../api/jsonServer';
 
 const BlogContext = React.createContext();
 
@@ -31,31 +32,48 @@ const blogReducer = (state, action) => {
             }
             return new_state;
         }
+
+        case 'get_blogpost': {
+            return action.payload;
+        }
+
         default:
             return state
     }
 }
 export const BlogProvider = ({children}) => {
     const [blogPosts, dispatch] = useReducer(blogReducer, []);
+    const [networkError, setNetworkError] = useState('');
+
+    const getBlogPosts = async () => {
+        try {
+        const response = await jsonServer.get('/blogposts');
+        dispatch({type: 'get_blogposts', payload: response.data});
+        } catch(e) {
+            console.log("The error happened when trying to connect to the server: ", e);
+            setNetworkError('Something went wrong');
+        }
+    };
 
     const addBlogPost = (title, content) => {
         dispatch({type: 'add_blogpost', payload: {title: title, content: content}})
-    }
+    };
 
     const deleteBlogPost = (id) => {
         dispatch({type: 'delete_blogpost', payload: id});
-    }
+    };
 
     const editBlogPost = (id, title, content) => {
         dispatch({type: 'edit_blogpost', payload: {id, title, content}})
-    }
+    };
 
     return(
         <BlogContext.Provider 
             value={{data: blogPosts,
                     addBlogPost: addBlogPost,
                     deleteBlogPost: deleteBlogPost,
-                    editBlogPost: editBlogPost
+                    editBlogPost: editBlogPost,
+                    networkError: networkError
                     }}
         >
             {children}
