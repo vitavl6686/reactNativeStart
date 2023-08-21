@@ -1,11 +1,11 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
+import jsonServer from '../api/jsonServer';
 
 const BlogContext = React.createContext();
 
 const blogReducer = (state, action) => {
     switch(action.type) {
-        case 'add_blogpost':
-            return [...state, {title: action.payload.title, content: action.payload.content, id: Math.floor(Math.random()*99999)}]
+        
         case 'delete_blogpost': {
             let post_to_delete = action.payload;
             let new_state = [];
@@ -31,31 +31,68 @@ const blogReducer = (state, action) => {
             }
             return new_state;
         }
+
+        case 'get_blogpost': {
+            return action.payload;
+        }
+
         default:
             return state
     }
 }
 export const BlogProvider = ({children}) => {
     const [blogPosts, dispatch] = useReducer(blogReducer, []);
+    const [networkError, setNetworkError] = useState('');
 
-    const addBlogPost = (title, content) => {
-        dispatch({type: 'add_blogpost', payload: {title: title, content: content}})
-    }
+    const getBlogPosts = async () => {
+        try {
+        const response = await jsonServer.get('/blogposts');
+        dispatch({type: 'get_blogposts', payload: response.data});
+        } catch(e) {
+            console.log("The error happened when trying to connect to the server: ", e);
+            setNetworkError('Something went wrong');
+        }
+    };
 
-    const deleteBlogPost = (id) => {
-        dispatch({type: 'delete_blogpost', payload: id});
-    }
+    const addBlogPost = async (title, content) => {
+        try {
+            const response = await jsonServer.post('/blogposts',{title, content});
+            } catch(e) {
+                console.log("The error happened when trying to connect to the server: ", e);
+                setNetworkError('Something went wrong');
+            }
+    };
 
-    const editBlogPost = (id, title, content) => {
+    const deleteBlogPost = async (id) => {
+        
+        try {
+            const response = await jsonServer.delete(`/blogposts/${id}`);
+            } catch(e) {
+                console.log("The error happened when trying to connect to the server: ", e);
+                setNetworkError('Something went wrong');
+            }
+            dispatch({type: 'delete_blogpost', payload: id});
+    };
+
+    const editBlogPost = async (id, title, content) => {
+        try {
+            const response = await jsonServer.put(`/blogposts/${id}`, {title, content});
+            } catch(e) {
+                console.log("The error happened when trying to connect to the server: ", e);
+                setNetworkError('Something went wrong');
+            }
+            dispatch({type: 'delete_blogpost', payload: id});
         dispatch({type: 'edit_blogpost', payload: {id, title, content}})
-    }
+    };
 
     return(
         <BlogContext.Provider 
             value={{data: blogPosts,
                     addBlogPost: addBlogPost,
                     deleteBlogPost: deleteBlogPost,
-                    editBlogPost: editBlogPost
+                    editBlogPost: editBlogPost,
+                    networkError: networkError,
+                    getBlogPosts: getBlogPosts
                     }}
         >
             {children}
