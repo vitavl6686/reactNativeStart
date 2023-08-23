@@ -1,0 +1,33 @@
+ExpressJS -- framework for developing web and mobile applications. 
+Helps managing server work.
+_______
+Creating basic application.
+
+0) npm install express
+1) mkdir server
+2) cd server
+3) mkdir src 
+4) cd src
+5) touch index.js
+
+6) In index.js:
+-----
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hi there!');
+})
+// When someone sends http request to the root, we will 
+//invoke the function. Where res -- object of responce. 
+
+app.listen(3000, () => {
+    console.log('Listening on port 3000');
+});
+
+______
+to make understand JSON.
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
