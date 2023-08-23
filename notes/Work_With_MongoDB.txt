@@ -1,0 +1,56 @@
+General idea of work with database:
+1) set up express in index.js (test with nodemon src/index.js) or node src/index.js
+1.5) create database at cloud.mongo.com
+2) import mongoose in index.js and set up connection with db 
+3) set up routes outside index.js
+4) import them as app.use(routes) in index.js
+5) create models 
+6) import models in index.js
+7) use models in routes as mongoose.model(name)
+8) work with DB as necessary.
+
+
+
+1) to work with MongoDB from expressAPI we use library mongoose
+2) npm install mongoose
+3) cloud.mongodb.com -> create cluster
+4) create mongoURL
+
+5) in index.js: 
+    const mongoose = require('mongoose');
+    mongoose.connect(mongoURL);
+    mongoose.connection.on('connected', () => {
+        console.log('server is connected to the database');
+    })
+    mongoose.connection.on('error', (err) => {
+        console.log('server failed to connect to the database');
+    })
+
+______
+Creating models for mongoose.
+
+1) in src create models
+2) in models create User.js (name of the model)
+
+to create model:
+1) import mongoose.
+2) userSchema = new mongoose.Schema({
+    attribute1: {
+        details (type, unique, required...)
+    },
+    attribute2
+}) 
+
+mongoose.model('User', userSchema);
+
+3) import using require into index.js (and only there!)
+4) instead of import outside: mongoose.model("User")
+
+______
+Adding to the database.
+
+1) create an instance of the object: 
+    const user = new User({attr1: value1, attr2: value2});
+2) send in to the database
+    user.save();
+3) return res.status(422).send(err.message)
