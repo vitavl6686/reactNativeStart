@@ -39,6 +39,9 @@ Natigators in react native.
 -- Drawer navigator
     ** the list at the side of the page
 -- Bottom tab navigator
+    ** tab bar at the bottom of the screen
+--Switch
+    ** the screen in cut from the other screens
 
 ___
 USE:
