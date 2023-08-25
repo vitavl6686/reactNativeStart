@@ -24,6 +24,9 @@ deliver information.
 * export componentNameProvider as a named export (we export different things)
 * import it in App.js
 * Now we have a wrapper for all components in our application.
+* const App =  createAppContainer(switchNavigator);
+
+export default () => { return (<AuthContextProvider><App /></AuthContextProvider>)}
 
 ____
 Provider. 

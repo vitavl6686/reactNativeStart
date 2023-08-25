@@ -1,0 +1,39 @@
+How to install.
+
+-- npm install react-navigation --legacy-peer-deps
+-- npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view -- --legacy-peer-deps
+-- npm install react-navigation-stack @react-native-community/masked-view --legacy-peer-deps
+-- npm install react-navigation-material-bottom-tabs react-native-paper@4 --legacy-peer-deps
+-- in babel.config.js: plugins: ["react-native-reanimated/plugin"],
+***
+The goal: 
+1) application:
+    1.1) the first set of screens: sign-up and sign-in: smooth transition 
+        from one to another using a button.
+    1.2.) the second set: bottom navigator between A, B, C when there are 4 different screens 
+        (D is assessed through A)
+    1.3.) no way from the first set to the second and back.
+
+______
+1.1. Use stack navigator for the first set.
+1.2  Use stack navigator for A <-> D
+1.3  Use bottom tab navigator between A, B, C 
+1.4 Use switch navigator for two sets.
+
+
+in App.js:
+import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+
+WE CAN USE NESTED NAVIGATORS.
+const switchNavigator = createSwitchNavigator({
+    flow1: createStackNavigator({a: A, b: B}),
+    flow2...
+})
+
+
+export defaul createAppContainer(switchNavigator);
+
+______
+How to remove header: use navigationOptions with {headerShown: false}

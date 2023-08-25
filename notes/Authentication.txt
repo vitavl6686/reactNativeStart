@@ -97,3 +97,12 @@ userSchema.methods.comparePasswords = function(candidatePassword) => {
         })
     }
 }
+
+________
+To use all API in an application.
+******
+npm install axios
+import axios in api folder.
+export default axios.create({
+    baseURL: ''
+})
