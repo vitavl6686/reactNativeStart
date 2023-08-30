@@ -37,3 +37,24 @@ export defaul createAppContainer(switchNavigator);
 
 ______
 How to remove header: use navigationOptions with {headerShown: false}
+___________
+Navigation from outside the React components.
+
+* create a new file navigationRef.js
+There:
+import { NavigationActions } from "react-navigation";
+
+let navigator;
+
+export const setNavigator = (nav) => {
+    navigator = nav;
+};
+
+export const navigate = (routename, params) => {
+    navigator.dispatch(
+        NavigationActions.navigate({routename, params})
+    );
+};
+
+* add to App.js 
+<App ref = {(navigator) => setNavigator(navigator) }

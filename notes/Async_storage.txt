@@ -1,0 +1,9 @@
+1. react-native-async-storage. -- separate library.
+2. persistent and not-encrypted. For small files.
+
+npm install @react-native-async-storage/async-storage --legacy-peer-deps
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+To store:
+After getting a responce with token, we use:
+AsyncStorage.setItem('token', response.data.token);

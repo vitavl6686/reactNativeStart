@@ -61,6 +61,8 @@ module.exports = (req, res, next) => {
 
 add it to the request handler as a second argument.
 
+Problem: we cannot store it in states since they will be cleared after closing the 
+application. Use Async storage.
 ______________
 Hashing and salting.
 
@@ -106,3 +108,4 @@ import axios in api folder.
 export default axios.create({
     baseURL: ''
 })
+

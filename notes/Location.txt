@@ -1,0 +1,27 @@
+Location and all about it.
+___________________
+
+Adding a map to your application.
+-----
+0. npx expo install react-native-maps -- --legacy-peer-deps
+1. import MapView from 'react-native-maps';
+2. use <MapView /> with height and width
+3. props:
+    * initialRegion = {{latutude, longtitude, latitudeDelta, longtitudeDelta}}
+
+4. Draw a line:
+    use { Poliline } tag inside MapView.
+    <Poliline coordinates = {array of coordinates as object}>
+
+
+___________________
+User's location use.
+0. when CreateTrackScreen appears, we prompt user for location permission.
+1. if reject, error. 
+2. if accept, start tracking
+3. if the same screen again, the OS authomatically will do that
+
+1. import { requestForegroundPermissionsAsync } from 'expo-location';
+2. const { granted } = await requestForegroundPermissionsAsync();
+
+
