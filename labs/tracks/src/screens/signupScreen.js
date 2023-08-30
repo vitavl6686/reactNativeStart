@@ -3,16 +3,18 @@ import { View,  StyleSheet } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Button, Input, Text } from '@rneui/themed';
 import AuthContext from "../context/AuthContext";
+import { NavigationEvents } from "react-navigation";
 
 
 const signupScreen = ({navigation}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const {signUp, errorMessage} = useContext(AuthContext);
+    const {data, action} = useContext(AuthContext);
     
 
     return(
-        <View style = {{flex: 1, justifyContent: 'center', marginBottom: 300}}>
+        <View style = {{flex: 1, justifyContent: 'center', marginBottom: 80}}>
+            <NavigationEvents onWillFocus={action.clearErrorMessage}/>
             <Text style = {styles.block} h2 = {true}>Sign Up</Text>
             <View style = {styles.block}>
             <Input 
@@ -31,14 +33,14 @@ const signupScreen = ({navigation}) => {
                 autoCorrect = {false} 
             />
             </View>
-            <Text style = {{color: 'red', fontSize: 10}}>{errorMessage}</Text>
+            <View style = {styles.block}>
+            <Text style = {{color: 'red', fontSize: 10}}>{data.errorMessage}</Text>
+            </View>
             <View style = {styles.block}>
             <Button title = "Sign up" 
                     type = "outline"
-                    onPress={async () => {
-                        await signUp(email, password);
-                        console.log(errorMessage)
-                        
+                    onPress={() => {
+                        action.signUp(email, password);
                         }
                     }
             />
