@@ -10,6 +10,7 @@ import accountDetailsScreen from "./src/screens/accoutDetailsScreen";
 import createTrackScreen from "./src/screens/createTrackScreen";
 import defaultScreen from "./src/screens/defaultScreen";
 import { AuthContextProvider } from "./src/context/AuthContext";
+import { LocationContextProvider } from "./src/context/LocationContext";
 import { setNavigator } from "./src/navigationRef";
 
 
@@ -35,4 +36,4 @@ const switchNavigator = createSwitchNavigator({
 const App =  createAppContainer(switchNavigator);
 
 export default () => {
-   return (<AuthContextProvider><App ref = {(navigator) => setNavigator(navigator) }  /></AuthContextProvider>)}
+   return (<LocationContextProvider><AuthContextProvider><App ref = {(navigator) => setNavigator(navigator) }  /></AuthContextProvider></LocationContextProvider>)}

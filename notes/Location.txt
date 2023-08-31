@@ -8,10 +8,16 @@ Adding a map to your application.
 2. use <MapView /> with height and width
 3. props:
     * initialRegion = {{latutude, longtitude, latitudeDelta, longtitudeDelta}}
-
+    * region -- what to show. the same object
 4. Draw a line:
     use { Poliline } tag inside MapView.
     <Poliline coordinates = {array of coordinates as object}>
+5. Draw a circle:
+    use { Circle } tag inside MapView.
+    center
+    radius
+    strokeColor
+    fillColor
 
 
 ___________________
@@ -21,7 +27,14 @@ User's location use.
 2. if accept, start tracking
 3. if the same screen again, the OS authomatically will do that
 
-1. import { requestForegroundPermissionsAsync } from 'expo-location';
+0. npx expo install expo-location  -- --legacy-peer-deps
+1. import { requestForegroundPermissionsAsync } from 'expo-location'; in where needed
 2. const { granted } = await requestForegroundPermissionsAsync();
+3. await watchPositionAsync(options_object, function_what_to_do)
+    options_objeact:
+        -- accuracy: Accuracy.bestForNavigation.
+        -- timeInterval -- how often check
+        -- distanceInterval 
+
 
 
