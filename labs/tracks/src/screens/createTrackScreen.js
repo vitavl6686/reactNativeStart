@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { View,  StyleSheet, StatusBar } from 'react-native';
 import { Text } from "@rneui/base";
+import { useContext } from "react";
 import Map from "../components/Map";
-import { requestForegroundPermissionsAsync } from 'expo-location';
+import LocationContext from "../context/LocationContext";
+import useLocation from "../hooks/useLocation";
+//import '../_mockLocation';
+
 
 const statusBar = StatusBar.currentHeight;
 
+
 const createTrackScreen = () => {
-    const [err, setErr] = useState(null);
-    const startWatching = async () => {
-        try {
-        const { granted } = await requestForegroundPermissionsAsync();
-        if (!granted) {
-            setErr('You dont allow us to use your location');
-        }
-        }
-        catch(e) {
-            setErr(e);
-        }
-    }
     
-    useEffect(() => {startWatching()}, []);
-    
+    const {addCurrentLocation} = useContext(LocationContext);
+    const [err] = useLocation((location) => addCurrentLocation(location));
     return(
         <View style = {styles.mainView} >
             
